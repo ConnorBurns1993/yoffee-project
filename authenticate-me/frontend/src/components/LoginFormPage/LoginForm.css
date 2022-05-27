@@ -2,3 +2,13 @@ input {
 background:cornsilk;
 color: rgb(88, 36, 36);
 }
+
+.login-inputs {
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

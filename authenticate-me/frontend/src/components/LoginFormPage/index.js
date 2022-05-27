@@ -30,8 +30,9 @@ function LoginFormPage() {
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
+      <div className='login-inputs'>
       <label>
-        Username or Email
+        Email
         <input
           type="text"
           value={credential}
@@ -49,6 +50,7 @@ function LoginFormPage() {
         />
       </label>
       <button type="submit">Log In</button>
+      </div>
     </form>
   );
 }
