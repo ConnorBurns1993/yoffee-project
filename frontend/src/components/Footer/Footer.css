@@ -1,0 +1,56 @@
+.footer-title {
+padding-top: 50px;
+font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+font-weight: normal;
+font-size: 14px;
+line-height: 20px;
+font-size: 16px;
+line-height: 22px;
+font-weight: bold;
+color: rgba(45,46,47,1);
+display: inline-flex;
+justify-content: space-evenly;
+}
+
+.footer-content {
+    padding: 10px;
+    padding-bottom: 40px;
+    position: relative;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    font-weight: normal;
+    color: rgba(110,112,114,1);
+    font-size: 14px;
+    line-height: 20px;
+    right: 25px;
+    text-align: center;
+
+}
+
+.footer-wrapper {
+    background-color: #f0f0f0;
+}
+
+.footer-1,
+.footer-2,
+.footer-3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.email {
+    position: relative;
+    right: 30px;
+}
+
+.github {
+    position: relative;
+    right: 61px;
+}
+
+.linkedin {
+    position: relative;
+    right: 77px;
+}
