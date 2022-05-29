@@ -30,15 +30,16 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
-        <i className="fa-solid fa-mug-saucer" />
+    <div className='logout-wrapper'>
+      <button className="profile-picture" onClick={openMenu}>
+        Profile Pic
       </button>
+      </div>
       {showMenu && (
         <ul className="profile-dropdown">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
+          <li>Account Settings</li>
           <li>
-            <button onClick={logout}>Log Out</button>
+            <button className="logout" onClick={logout}>Log Out</button>
           </li>
         </ul>
       )}

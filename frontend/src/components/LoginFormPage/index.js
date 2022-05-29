@@ -27,13 +27,15 @@ function LoginFormPage() {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div className='mock-header'><img src='https://i.imgur.com/WNhN3BB.png' class='mock-header-img'></img></div>
+      <div className='login-div'>
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
-      <div className='login-inputs'>
       <label>
         Email
         <input
+          class='login-inputs'
           type="text"
           value={credential}
           onChange={(e) => setCredential(e.target.value)}
@@ -43,13 +45,14 @@ function LoginFormPage() {
       <label>
         Password
         <input
+        class='login-inputs'
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
       </label>
-      <button type="submit">Log In</button>
+      <button type="submit" class='login2'>Log In</button>
       </div>
     </form>
   );

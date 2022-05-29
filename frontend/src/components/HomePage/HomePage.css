@@ -1,0 +1,68 @@
+.background-img {
+    background-image: url("../../../images/coffee6.jpg");
+    background-position: 80% 95%;
+    background-size: 100%;
+    z-index: -2;
+    background-repeat: no-repeat;
+    align-items: center;
+    position: absolute;
+    min-width: 100%;
+    min-height: 70%;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .recent-activity {
+     display: block;
+     text-align: center;
+     position: relative;
+     top: 565px;
+     font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -.4px;
+    line-height: 36px;
+    color: rgba(45,46,47,1);
+    }
+
+    .home-h2 {
+        display: block;
+        position: relative;
+        top: 200px;
+        width: 500px;
+        left: 450px;
+        font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+       font-size: 42px;
+       font-weight: 700;
+       letter-spacing: -.4px;
+       line-height: 56px;
+       color: white
+    }
+
+    .latte-button {
+        font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+        font-size: 17px;
+        border-radius: 5px;
+        padding: 15px;
+        color: whitesmoke;
+        text-decoration: none;
+        background-color: rgb(54, 15, 15);
+        transition: background-color .5s;
+        width: 200px;
+        position: relative;
+        top: 220px;
+        left: 450px;
+        font-weight: 600;
+        border: transparent;
+    }
+
+    .latte-button:hover {
+        background-color: rgb(75, 23, 23);
+    }
+
+    .magnify2 {
+        margin-right: 10px;
+    }

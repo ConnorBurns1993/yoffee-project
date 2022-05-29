@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
+import './SignupForm.css'
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -29,12 +30,15 @@ function SignupFormPage() {
 
   return (
     <form onSubmit={handleSubmit}>
+     <div className='signup-form'>
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
+      <img className='coffee-img' src='https://cdn.dribbble.com/users/184987/screenshots/5712822/media/070e6aab255e48868f294fb89bd1d569.png?compress=1&resize=400x300&vertical=top' alt=''></img>
       <label>
         Email
         <input
+        class='login-inputs'
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -42,8 +46,9 @@ function SignupFormPage() {
         />
       </label>
       <label>
-        Username
+        Full Name
         <input
+        class='login-inputs'
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
@@ -53,6 +58,7 @@ function SignupFormPage() {
       <label>
         Password
         <input
+        class='login-inputs'
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -62,13 +68,15 @@ function SignupFormPage() {
       <label>
         Confirm Password
         <input
+        class='login-inputs'
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
-        />
+          />
       </label>
-      <button type="submit">Sign Up</button>
+      <button className="login2" type="submit">Sign Up</button>
+      </div>
     </form>
   );
 }
