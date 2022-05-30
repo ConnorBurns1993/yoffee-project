@@ -31,15 +31,13 @@ function ProfileButton({ user }) {
   return (
     <>
     <div className='logout-wrapper'>
-      <button className="profile-picture" onClick={openMenu}>
-        <img alt='' src={`${user.profilePicture}`}></img>
-      </button>
+        <img onClick={openMenu} className='profile-picture' alt='' src={`${user.profilePicture}`}></img>
       </div>
       {showMenu && (
         <ul className="profile-dropdown">
-          <li>Account Settings</li>
+          <li className="settings"><i className='fa-solid fa-gear cog'></i>Account Settings</li>
           <li>
-            <button className="logout" onClick={logout}>Log Out</button>
+            <button className="logout" onClick={logout}><i className="fa-solid fa-arrow-right-from-bracket arrow"></i>Log Out</button>
           </li>
         </ul>
       )}

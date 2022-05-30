@@ -24,7 +24,7 @@ function Navigation({ isLoaded }){
   return (
       <div className="homepage-wrapper">
     <ul>
-      <li>
+      <li className='navigation'>
         <NavLink exact to="/" className="home"><img className="homeLogo" src="https://i.imgur.com/WNhN3BB.png" alt=''></img></NavLink>
         <form>
        <input className='searchbar1' type='search' placeholder='mochas, espresso, iced lattes...'></input>

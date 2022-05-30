@@ -1,16 +1,5 @@
-.logout {
-    background-color: white;
-    border: none;
-    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0px;
-    line-height: 20px;
-    color: rgb(45, 46, 47);
-    text-align: left;
-}
 
-li {
+.navigation {
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     font-weight: 600;
@@ -30,7 +19,7 @@ li {
 }
 
 .homeLogo{
-    padding-top: 25px;
+padding-top: 25px;
 position: relative;
 bottom: 10px;
 left: 10px;
@@ -70,12 +59,6 @@ width: 200px;
 
 .signup:hover {
     background-color: rgb(75, 23, 23);
-}
-
-.profile-picture {
-    border: 5px solid black;
-    border-radius: 50px;
-
 }
 
 .logout-wrapper {
@@ -172,4 +155,51 @@ bottom: 10px
 }
 
 .profile-picture {
+    width: 40px;
+    border: transparent;
+    border-radius: 50px;
+    margin-left: 150px;
+}
+
+
+.settings {
+  border-bottom: 1px solid #c9c9c9;
+  padding-bottom: 10px;
+  font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  margin-left: 8px;
+  transition: background-color
+}
+
+.logout {
+padding-top: 10px;
+background-color: white;
+border:  transparent;
+font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+font-weight: 700;
+margin-left: 10px;
+transition: background-color
+}
+
+.profile-dropdown {
+    border: transparent;
+    border-radius: 5px;
+    background-color: white;
+    position: relative;
+    top: 70px;
+    right: 230px;
+    margin: -225px;
+    padding: 15px;
+    list-style-type: none;
+}
+
+.cog,
+.arrow {
+    margin-right: 5px
+}
+
+.logout:hover,
+.settings:hover {
+    background-color: rgb(238, 238, 238);
+    border-radius: 5px;
+    width: max-content;
 }
