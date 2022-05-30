@@ -8,10 +8,8 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      username: {
-        type: Sequelize.STRING(30),
-        allowNull: false,
-        unique: true
+      name: {
+        type: Sequelize.STRING(50),
       },
       email: {
         type: Sequelize.STRING(256),
@@ -21,6 +19,11 @@ module.exports = {
       hashedPassword: {
         type: Sequelize.STRING.BINARY,
         allowNull: false
+      },
+      profilePicture: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        defaultValue: "https://w1.pngwing.com/pngs/616/690/png-transparent-black-circle-user-user-profile-computer-software-login-user-space-black-and-white.png"
       },
       createdAt: {
         allowNull: false,
@@ -34,8 +37,7 @@ module.exports = {
       }
     });
   },
-
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('Users');
   }
-};
+}

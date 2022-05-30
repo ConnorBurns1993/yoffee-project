@@ -3,9 +3,8 @@ const { Validator } = require('sequelize');
 const bcrypt = require('bcryptjs');
 
 module.exports = (sequelize, DataTypes) => {
-
   const User = sequelize.define('User', {
-    username: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -23,6 +22,11 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         len: [3, 256]
       }
+    },
+    profilePicture: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "https://i.imgur.com/6bPHcxG.jpg"
     },
     hashedPassword: {
       type: DataTypes.STRING.BINARY,
@@ -45,29 +49,30 @@ module.exports = (sequelize, DataTypes) => {
       loginUser: {
         attributes: {}
       }
-    }
+    },
   });
 
   User.prototype.toSafeObject = function() {
-    const { id, username, email } = this;
-    return { id, username, email };
+    // remember, this cannot be an arrow function
+    const { id, name, profilePicture, email } = this; // context will be the User instance
+    return { id, name, profilePicture, email };
   };
 
   User.prototype.validatePassword = function (password) {
     return bcrypt.compareSync(password, this.hashedPassword.toString());
    };
 
-  User.getCurrentUserById = async function (id) {
+   User.getCurrentUserById = async function (id) {
     return await User.scope('currentUser').findByPk(id);
    };
 
-  User.login = async function ({ credential, password }) {
+   User.login = async function ({ email, password }) {
     const { Op } = require('sequelize');
     const user = await User.scope('loginUser').findOne({
       where: {
         [Op.or]: {
-          username: credential,
-          email: credential
+          name: email,
+          email: email
         }
       }
     });
@@ -76,10 +81,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
 
-  User.signup = async function ({ username, email, password }) {
+  User.signup = async function ({ name, email, password }) {
     const hashedPassword = bcrypt.hashSync(password);
     const user = await User.create({
-      username,
+      name,
       email,
       hashedPassword
     });

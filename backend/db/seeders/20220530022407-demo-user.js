@@ -6,17 +6,17 @@ module.exports = {
     return queryInterface.bulkInsert('Users', [
       {
         email: 'demo@user.io',
-        username: 'DemoUser',
+        name: 'Demo-User',
         hashedPassword: bcrypt.hashSync('password')
       },
       {
         email: 'user1@user.io',
-        username: 'MockUser1',
+        name: 'FakeUser1',
         hashedPassword: bcrypt.hashSync('password2')
       },
       {
         email: 'user2@user.io',
-        username: 'MockUser2',
+        name: 'FakeUser2',
         hashedPassword: bcrypt.hashSync('password3')
       }
     ], {});
@@ -25,7 +25,7 @@ module.exports = {
   down: (queryInterface, Sequelize) => {
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete('Users', {
-      username: { [Op.in]: ['DemoUser', 'MockUser1', 'MockUser2'] }
+      name: { [Op.in]: ['Demo-lition', 'FakeUser1', 'FakeUser2'] }
     }, {});
   }
 };

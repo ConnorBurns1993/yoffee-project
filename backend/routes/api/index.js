@@ -16,7 +16,7 @@ const { User } = require('../../db/models');
 router.get('/set-token-cookie', asyncHandler(async (_req, res) => {
   const user = await User.findOne({
       where: {
-        username: 'Demo-User'
+        name: 'Demo-User'
       }
     });
   setTokenCookie(res, user);
