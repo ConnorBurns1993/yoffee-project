@@ -61,6 +61,7 @@
 
     .latte-button:hover {
         background-color: rgb(75, 23, 23);
+        cursor: pointer;
     }
 
     .magnify2 {
