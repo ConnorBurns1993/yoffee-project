@@ -32,7 +32,7 @@ function ProfileButton({ user }) {
     <>
     <div className='logout-wrapper'>
       <button className="profile-picture" onClick={openMenu}>
-        Profile Pic
+        <img alt='' src={`${user.profilePicture}`}></img>
       </button>
       </div>
       {showMenu && (

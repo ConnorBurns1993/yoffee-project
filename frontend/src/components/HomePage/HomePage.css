@@ -66,3 +66,9 @@
     .magnify2 {
         margin-right: 10px;
     }
+
+    .footer-wrapper-home {
+        position: relative;
+        top: 900px;
+        background-color: #f0f0f0;
+    }

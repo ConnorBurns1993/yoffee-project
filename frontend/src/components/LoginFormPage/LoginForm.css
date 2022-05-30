@@ -8,6 +8,7 @@ position: relative;
 left: 50px;
 }
 
+
 .login-div {
     display: flex;
     flex-direction: column;
@@ -20,7 +21,6 @@ left: 50px;
 form {
     display: flex;
     justify-content: flex-end;
-    margin-right: 20px;
 }
 
 label {
@@ -52,12 +52,14 @@ label {
 
 .facebook:hover {
     background-color: #4c8fe6;
+    cursor: pointer;
 }
 
 .google {
     border: 1px solid #cccccc;
     color: #666666;
     background-color: white;
+    cursor: pointer;
 }
 
 .goog {
@@ -69,7 +71,8 @@ label {
 .apple {
     color: white;
     background-color: black;
-    transition: background-color .5s
+    transition: background-color .5s;
+    cursor: pointer;
 }
 
 .apple:hover {
@@ -109,7 +112,7 @@ label {
     margin-top: 24px;
     margin-bottom: 24px;
     position: relative;
-    left: 70px;
+    left: 55px;
 }
 
 .or {
