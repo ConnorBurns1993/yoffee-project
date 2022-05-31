@@ -12,6 +12,7 @@ module.exports = {
         city: 'Los Angeles',
         state: 'California',
         zipCode: '90012',
+        businessImage: 'https://i.imgur.com/9DwG8l1.jpg',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -23,6 +24,7 @@ module.exports = {
         city: 'Los Angeles',
         state: 'California',
         zipCode: '90012',
+        businessImage: 'https://i.imgur.com/TSvXiaU.jpg',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -34,6 +36,7 @@ module.exports = {
         city: 'Bug City',
         state: 'useState',
         zipCode: '12345',
+        businessImage: 'https://i.imgur.com/u5GRBEW.jpg',
         createdAt: new Date(),
         updatedAt: new Date()
       },

@@ -50,7 +50,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     ratingsTotal: DataTypes.INTEGER,
     latitude: DataTypes.DECIMAL,
-    longitude: DataTypes.DECIMAL
+    longitude: DataTypes.DECIMAL,
+    businessImage: {
+      type: DataTypes.STRING,
+    },
   }, {});
 
   Business.associate = function(models) {
