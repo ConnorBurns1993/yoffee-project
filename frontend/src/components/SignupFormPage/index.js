@@ -38,7 +38,7 @@ function SignupFormPage() {
      <div className='signup-div'>
      <h2 className='log-in-to-yoffee'>Sign Up for Yoffee</h2>
      <div className='new-to-yoffee1'>Connect with great local businesses</div>
-     <div className='tos'>By continuing, you agree to Yoffee's <NavLink to='/login' className='links'>Terms of Service</NavLink> and acknowledge Yoffee's <NavLink to='/login' className='links'>Privacy Policy.</NavLink></div>
+     <div className='tos'>By continuing, you agree to Yoffee's <NavLink to='/signup' className='links'>Terms of Service</NavLink> and acknowledge Yoffee's <NavLink to='/signup' className='links'>Privacy Policy.</NavLink></div>
      <NavLink exact to='/'><button className='demo-user facebook'>
       <i className="fa-brands fa-dailymotion demo-icon"></i>Continue with Demo User
       </button></NavLink>

@@ -6,7 +6,6 @@ import SignupFormPage from "./components/SignupFormPage";
 import HomePage from './components/HomePage'
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import Footer from "./components/Footer"
 import './App.css'
 
 function App() {

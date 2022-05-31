@@ -1,8 +1,8 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+// import { NavLink } from 'react-router-dom';
+// import { useSelector } from 'react-redux';
 import './HomePage.css';
-import Footer from '../Footer';
+// import Footer from '../Footer';
 
 function HomePage (){
     return (
@@ -22,9 +22,9 @@ function HomePage (){
           <div className='footer-title'>Connor For Business</div>
       </div>
       <div className='footer-2'>
-          <a href='https://www.google.com/gmail/about/' target='_blank' className='footer-content email links'>Email</a>
-          <a href='https://github.com/ConnorBurns1993' target='_blank' className='footer-content github links'>GitHub</a>
-          <a href='https://www.linkedin.com/in/connor-burns-647766194/' target='_blank' className='footer-content linkedin links'>LinkedIn</a>
+          <a href='https://www.google.com/gmail/about/' target='_blank' rel="noreferrer" className='footer-content email links'>Email</a>
+          <a href='https://github.com/ConnorBurns1993' target='_blank' rel="noreferrer" className='footer-content github links'>GitHub</a>
+          <a href='https://www.linkedin.com/in/connor-burns-647766194/' target='_blank' rel="noreferrer" className='footer-content linkedin links'>LinkedIn</a>
       </div>
   </div>
   </>
