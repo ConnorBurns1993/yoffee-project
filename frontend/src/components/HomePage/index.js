@@ -2,7 +2,7 @@ import React from 'react';
 // import { NavLink } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
 import './HomePage.css';
-// import Footer from '../Footer';
+import '../Footer/Footer.css'
 
 function HomePage (){
     return (
