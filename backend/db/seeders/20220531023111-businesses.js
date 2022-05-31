@@ -12,6 +12,8 @@ module.exports = {
         city: 'Los Angeles',
         state: 'California',
         zipCode: '90012',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
         ownerId: 2,
@@ -21,6 +23,8 @@ module.exports = {
         city: 'Los Angeles',
         state: 'California',
         zipCode: '90012',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
         ownerId: 3,
@@ -30,6 +34,8 @@ module.exports = {
         city: 'Bug City',
         state: 'useState',
         zipCode: '12345',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
     ], {});
   },
