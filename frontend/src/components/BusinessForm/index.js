@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { getBusinesses } from "../../store/businesses";
 import { useSelector, useDispatch } from "react-redux";
-
+import { Link } from 'react-router-dom'
 
 function Businesses() {
 const businesses = useSelector(state => {
@@ -17,7 +17,7 @@ useEffect(() => {
 return businesses.map((business) => (
     <>
     <img src={business.businessImage}></img>
-    <div>{business.title}</div>
+    <Link to={`/businesses/${business.id}`}>{business.title}</Link>
     <div>{business.description}</div>
     <div>{business.address}</div>
     </>
