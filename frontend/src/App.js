@@ -6,6 +6,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import HomePage from './components/HomePage'
 import Businesses from "./components/BusinessForm";
+import BusinessDetail from './components/BusinessForm/BusinessDetail'
 import Navigation from "./components/Navigation";
 import './App.css'
 
@@ -30,8 +31,11 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path='/businesses'>
+          <Route path='/businesses' exact>
             <Businesses />
+          </Route>
+          <Route path='/businesses/:businessId' exact>
+            <BusinessDetail />
           </Route>
         </Switch>
       )}
