@@ -33,7 +33,9 @@ export const getOneBusiness = (businessId) => async (dispatch) => {
     }
 }
 
-const initialState= {};
+const initialState= {
+    list:[]
+};
 
 const businessesReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -53,7 +55,7 @@ const businessesReducer = (state = initialState, action) => {
                 ...state,
                 [action.business.id]: action.business,
             };
-            const businessList = newState.business.map((id) => newState[id]);
+            const businessList = newState.list.map((id) => newState[id]);
             businessList.push(action.business);
             return newState;
       }
