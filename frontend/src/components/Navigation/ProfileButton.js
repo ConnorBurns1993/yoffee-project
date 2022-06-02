@@ -38,10 +38,10 @@ function ProfileButton({ user }) {
         <ul className="profile-dropdown">
           <li className="settings"><i className='fa-solid fa-gear cog'></i>Account Settings
           </li>
-            <NavLink to='/businesses/create' className='create-a-business links'><i className='fa-solid fa-plus plus'></i>Add Your Business
+            <NavLink to='/businesses/hey/create' style={{textDecoration: 'none'}} className='create-a-business links'><i className='fa-solid fa-plus plus'></i>Add Your Business
             </NavLink>
             <li>
-            <button className="logout" onClick={logout}><i className="fa-solid fa-arrow-right-from-bracket arrow"></i>Log Out</button>
+            <li className="logout"  onClick={logout}><i className="fa-solid fa-arrow-right-from-bracket arrow"></i>Log Out</li>
           </li>
         </ul>
       )}

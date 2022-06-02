@@ -37,7 +37,7 @@ export const getOneBusiness = (businessId) => async (dispatch) => {
 export const addBusiness = (data) => async (dispatch) => {
     console.log("--- Top of Thunk --- Data: ", data)
     try {
-        const response = await fetch('/api/businesses/create', {
+        const response = await csrfFetch('/api/businesses/create', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -90,7 +90,6 @@ const businessesReducer = (state = initialState, action) => {
                 ...normalizedBusinesses,
             };
         case ADD_BUSINESS:
-            console.log('We hit the Reducer!', action.business.id)
             if (!state[action.business.id]) {
                 const newState = {
                 ...state,
