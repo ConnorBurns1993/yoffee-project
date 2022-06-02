@@ -1,3 +1,4 @@
+import { ValidationError } from '../utils/validationError'
 import { csrfFetch } from "./csrf";
 
 const LOAD_BUSINESSES = 'businesses/LOAD_BUSINESSES'
@@ -33,6 +34,46 @@ export const getOneBusiness = (businessId) => async (dispatch) => {
     }
 }
 
+export const addBusiness = (data) => async (dispatch) => {
+    console.log("--- Top of Thunk --- Data: ", data)
+    try {
+        const response = await csrfFetch('/api/businesses/create', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+            });
+        console.log('--- After Response in Thunk --- Response: ', response)
+
+        if (!response.ok) {
+            let error;
+            if (response.status === 422) {
+                error = await response.json();
+                throw new ValidationError(error.errors, response.statusText);
+            } else {
+                let errorJSON;
+                error = await response.text();
+                try {
+                    errorJSON = JSON.parse(error)
+                } catch {
+                    throw new Error(error);
+                }
+                throw new Error(`${errorJSON.title}: ${errorJSON.message}`)
+
+            }
+        }
+
+        const business = await response.json()
+        console.log('---After Successful Response--- Response: ', business)
+        dispatch(add(business));
+        return business;
+
+    } catch (error) {
+        throw error
+    }
+};
+
 const initialState= {
     list:[]
 };
@@ -49,7 +90,6 @@ const businessesReducer = (state = initialState, action) => {
                 ...normalizedBusinesses,
             };
         case ADD_BUSINESS:
-            console.log('We hit the Reducer!', action.business.id)
             if (!state[action.business.id]) {
                 const newState = {
                 ...state,

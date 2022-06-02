@@ -1,11 +1,28 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 
-function Navigation({ isLoaded }){
+function Navigation({ isLoaded }, { isHome }){
   const sessionUser = useSelector(state => state.session.user);
+  const [scrolled,setScrolled]=useState(false);
+
+    const handleScroll=() => {
+      const offset=window.scrollY;
+      if(offset > 200 ){
+        setScrolled(true);
+      }
+      else{
+        setScrolled(false);
+      }
+    }
+
+    useEffect(() => {
+      window.addEventListener('scroll',handleScroll)
+    })
 
   let sessionLinks;
   if (sessionUser) {
@@ -24,7 +41,7 @@ function Navigation({ isLoaded }){
   return (
       <div className="homepage-wrapper">
     <ul>
-      <li className='navigation'>
+      <li className={setScrolled? 'navigation scrolled' : 'navigation'}>
         <NavLink exact to="/" className="home"><img className="homeLogo" src="https://i.imgur.com/WNhN3BB.png" alt=''></img></NavLink>
         <form>
        <input className='searchbar1' type='search' placeholder='mochas, espresso, iced lattes...'></input>

@@ -1,0 +1,64 @@
+.businesses-wrapper {
+    border: 1px solid rgb(212, 212, 212, .40);
+    transition: box-shadow .3s;
+    width: 800px;
+    height: 250px;
+    position: relative;
+    top: 100px;
+    left: 300px;
+    display: flex;
+    /* justify-content: center; */
+    margin: 25px;
+    padding: 20px;
+    padding-bottom: 30px;
+    border-radius: 4px;
+}
+
+.all-results {
+    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    color: rgba(45,46,47,1);
+    position: relative;
+    top: 100px;
+    left: 330px;
+    padding-top: 50px;
+}
+
+.businesses-wrapper:hover {
+    box-shadow: 0 0 11px rgba(68, 68, 68, 0.2);
+}
+
+.business-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+ul {
+    list-style: none;
+}
+
+.businesses-li {
+    width: 600px;
+}
+
+.business-content {
+display: inline-block;
+position: relative;
+font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+font-size: 14px;
+color: gray;
+width:400px;
+font-weight: 100
+}
+
+.businesses-title {
+    color: black;
+    font-weight: bold;
+    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 20px;
+}

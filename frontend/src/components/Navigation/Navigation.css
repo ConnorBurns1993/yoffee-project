@@ -14,16 +14,24 @@
     margin-left: 20px;
     margin-right: 20px;
     height: 80px;
-    min-width: 97%
+    min-width: 97%;
+    z-index: 1;
 
 }
 
+/* .scrolled{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+  } */
+
 .homeLogo{
-padding-top: 25px;
-position: relative;
-bottom: 10px;
-left: 10px;
-width: 200px;
+    padding-top: 25px;
+    position: relative;
+    bottom: 10px;
+    left: 10px;
+    width: 200px;
 }
 
 
@@ -116,7 +124,7 @@ width: 200px;
 }
 
 .searchbar-button:hover {
-background-color: rgb(75, 23, 23);
+    background-color: rgb(75, 23, 23);
 }
 
 .magnify {
@@ -124,28 +132,28 @@ background-color: rgb(75, 23, 23);
 }
 
 .angledown {
-color: whitesmoke;
-margin-left: 10px;
+    color: whitesmoke;
+    margin-left: 10px;
 }
 
 .under-searchbar-text {
-font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-color:  white;
-font-weight: 700;
-display:inline-flex;
-justify-content: center;
-text-align: center;
-margin-left: 40px;
-position: relative;
-font-size: 15px;
-bottom: 10px
+    font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    color:  white;
+    font-weight: 700;
+    display:inline-flex;
+    justify-content: center;
+    text-align: center;
+    margin-left: 40px;
+    position: relative;
+    font-size: 15px;
+    bottom: 10px;
 }
 
 .under-wrapper {
     display: flex;
     position: absolute;
     right: 1055px;
-    top: 90px
+    top: 90px;
 }
 
 .under-searchbar-text:hover {
@@ -168,16 +176,25 @@ bottom: 10px
 
 
 .settings {
-  border-bottom: 1px solid #c9c9c9;
-  padding-bottom: 10px;
-  font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-  margin-left: 8px;
+    padding-bottom: 10px;
+    font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    margin-left: 8px;
   transition: background-color
 }
 
+.create-a-business {
+    border-bottom: 1px solid #c9c9c9;
+    padding-bottom: 10px;
+    font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    margin-left: 8px;
+    transition: background-color;
+    text-decoration: none;
+}
+
+
 .logout {
-padding-top: 10px;
-background-color: white;
+/* padding-top: 10px; */
+margin-top: 20px;
 border:  transparent;
 font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
 font-weight: 700;
@@ -190,20 +207,23 @@ transition: background-color
     border-radius: 5px;
     background-color: white;
     position: relative;
-    top: 70px;
-    right: 230px;
-    margin: -225px;
+    top: 85px;
+    right: 235px;
+    margin: -230px;
     padding: 15px;
     list-style-type: none;
+    box-shadow: 0 0 11px rgba(68, 68, 68, 0.2);
 }
 
 .cog,
-.arrow {
+.arrow,
+.plus {
     margin-right: 5px
 }
 
 .logout:hover,
-.settings:hover {
+.settings:hover,
+.create-a-business:hover {
     background-color: rgb(238, 238, 238);
     border-radius: 5px;
     width: max-content;

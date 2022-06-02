@@ -1,0 +1,67 @@
+.add-business-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    top: 100px;
+    width: 300px;
+    border: solid black 1px
+}
+
+.add-business-form {
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    top: 200px;
+    left: 500px;
+    width: 500px;
+}
+
+.login3 {
+    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 17px;
+    border-radius: 5px;
+    padding: 15px;
+    color: whitesmoke;
+    text-decoration: none;
+    background-color: rgb(54, 15, 15);
+    transition: background-color .5s;
+    width: 300px;
+    position: relative;
+    font-weight: 600;
+    border: transparent;
+    position: relative;
+    left: 50px;
+    margin-top: 7px;
+
+}
+
+.log-in-to-yoffee2 {
+    text-align: center;
+    color:rgb(75, 23, 23);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 22px;
+    margin-bottom: 6px;
+    position: relative;
+    right: 50px
+}
+
+.new-to-yoffee2 {
+    text-align: center;
+    font-weight: bolder;
+    color: black;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    margin-bottom: 12px;
+    position: relative;
+    margin-right: 130px;
+}
+
+.coffee-art-create-business {
+    position: relative;
+    left: 1050px;
+    width: 600px;
+    bottom: 220px
+}
