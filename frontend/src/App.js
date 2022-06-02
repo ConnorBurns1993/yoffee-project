@@ -23,24 +23,31 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+
           <Route path='/' exact>
             <HomePage />
           </Route>
+
           <Route path="/login">
             <LoginFormPage />
           </Route>
+
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+
           <Route path='/businesses' exact>
             <Businesses />
           </Route>
+
+          <Route path='/businesses/create' exact>
+            <AddBusinessForm />
+          </Route>
+
           <Route path='/businesses/:businessId' exact>
             <BusinessDetail />
           </Route>
-          <Route path='/businesses/hey/create' exact>
-            <AddBusinessForm />
-          </Route>
+
         </Switch>
       )}
     </>

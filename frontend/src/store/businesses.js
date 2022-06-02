@@ -3,6 +3,8 @@ import { csrfFetch } from "./csrf";
 
 const LOAD_BUSINESSES = 'businesses/LOAD_BUSINESSES'
 const ADD_BUSINESS = 'businesses/ADD_BUSINESS'
+const UPDATE_BUSINESS = 'businesses/UPDATE_BUSINESS'
+const DELETE_BUSINESS = 'businesses/DELETE_BUSINESS'
 
 const load = (businesses) => ({
     type: LOAD_BUSINESSES,
@@ -13,6 +15,20 @@ const add = (businessId) => {
     return {
         type: ADD_BUSINESS,
         business: businessId,
+    }
+}
+
+const update = (business) => {
+    return {
+        type: UPDATE_BUSINESS,
+        business
+    }
+}
+
+const remove = (businessId) => {
+    return {
+        type: DELETE_BUSINESS,
+        businessId
     }
 }
 
@@ -74,12 +90,36 @@ export const addBusiness = (data) => async (dispatch) => {
     }
 };
 
+export const updateBusiness = (id, business) => async (dispatch) => {
+    const response = await csrfFetch(`/api/businesses/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(business)
+    })
+
+    if (response.ok) {
+        const business = await response.json()
+        dispatch(update(business))
+    }
+}
+
+export const deleteBusiness = (businessId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/businesses/${businessId}`, { method: 'DELETE' })
+    console.log('We are hitting the delete thunk')
+    if (response.ok) {
+        console.log('We are getting an ok respone on the delete thunk')
+        const { id } = await response.json()
+        dispatch(remove(id))
+        return businessId;
+    }
+}
+
 const initialState= {
     list:[]
 };
 
 const businessesReducer = (state = initialState, action) => {
     switch (action.type) {
+
         case LOAD_BUSINESSES:
             const normalizedBusinesses = {};
             action.businesses.forEach(business => {
@@ -89,6 +129,7 @@ const businessesReducer = (state = initialState, action) => {
                 ...state,
                 ...normalizedBusinesses,
             };
+
         case ADD_BUSINESS:
             if (!state[action.business.id]) {
                 const newState = {
@@ -106,9 +147,20 @@ const businessesReducer = (state = initialState, action) => {
             ...action.business,
             },
         };
-            default:
-                return state;
+
+        case DELETE_BUSINESS:
+            const deletedState = {...state};
+            delete deletedState[action.businessId]
+            return deletedState;
+
+        case UPDATE_BUSINESS:
+            const updatedState = { ...state, [action.business.id]: action.business}
+            return updatedState;
+
+        default:
+            return state;
     }
 };
+
 
 export default businessesReducer;

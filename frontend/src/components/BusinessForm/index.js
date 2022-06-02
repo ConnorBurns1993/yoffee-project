@@ -1,10 +1,11 @@
 import { useEffect } from "react";
-import { getBusinesses } from "../../store/businesses";
+import { getBusinesses, deleteBusiness } from "../../store/businesses";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from 'react-router-dom'
 import './BusinessForm.css'
 
 function Businesses() {
+
 const businesses = useSelector(state => {
     return Object.values(state.businesses)
 })

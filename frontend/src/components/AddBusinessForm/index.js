@@ -58,7 +58,7 @@ const AddBusinessForm = () => {
     <form className="add-business-form" onSubmit={(e) => handleSubmit(e)}>
     <h2 className='log-in-to-yoffee2'>Add your Business to Yoffee</h2>
     <div className='new-to-yoffee3'>Changed your mind? <NavLink to='/' className='links'>Cancel</NavLink></div>
-    <div className='tos'>By creating your business, you agree to Yoffee's <NavLink to='/businesses/hey/create' className='links'>Terms of Service</NavLink> and <NavLink to='/businesses/hey/create' className='links'>Privacy Policy.</NavLink></div>
+    <div className='tos'>By creating your business, you agree to Yoffee's <NavLink to='/businesses/create' className='links'>Terms of Service</NavLink> and <NavLink to='/businesses/hey/create' className='links'>Privacy Policy.</NavLink></div>
         <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
