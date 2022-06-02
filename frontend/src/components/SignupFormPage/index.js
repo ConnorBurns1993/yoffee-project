@@ -102,7 +102,7 @@ function SignupFormPage() {
       </div>
     </form>
     <img className='coffee-art-signup' src='https://thumbs.dreamstime.com/b/coffee-latte-art-cup-hand-drawn-vector-illustration-isolated-white-background-178040825.jpg' alt=''></img>
-    <div className='footer-wrapper-signup'>
+<div className='footer-wrapper-signup'>
     <div className='footer-1'>
         <div className='footer-title'>About</div>
         <div className='footer-title'>Discover</div>

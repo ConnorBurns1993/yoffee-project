@@ -24,7 +24,7 @@ const AddBusinessForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newBusiness = { // payload
+    const newBusiness = {
       ownerId: sessionUser.id,
       title,
       description,
@@ -42,7 +42,7 @@ const AddBusinessForm = () => {
       if (data && data.errors) setErrors(data.errors);
     });
 
-    if (errors.length < 0 && newBusiness) {
+    if (errors.length <= 0 &&  newBusiness) {
       history.push("/businesses");
     };
   };
@@ -57,7 +57,7 @@ const AddBusinessForm = () => {
     <div className='mock-header'><NavLink exact to='/'><img src='https://i.imgur.com/WNhN3BB.png' alt='' className='mock-header-img'></img></NavLink></div>
     <form className="add-business-form" onSubmit={(e) => handleSubmit(e)}>
     <h2 className='log-in-to-yoffee2'>Add your Business to Yoffee</h2>
-    <div className='new-to-yoffee2'>Changed your mind? <NavLink to='/' className='links'>Cancel</NavLink></div>
+    <div className='new-to-yoffee3'>Changed your mind? <NavLink to='/' className='links'>Cancel</NavLink></div>
     <div className='tos'>By creating your business, you agree to Yoffee's <NavLink to='/businesses/hey/create' className='links'>Terms of Service</NavLink> and <NavLink to='/businesses/hey/create' className='links'>Privacy Policy.</NavLink></div>
         <ul>
           {errors.map((error, idx) => (
@@ -66,13 +66,13 @@ const AddBusinessForm = () => {
         </ul>
         <input
         className='login-inputs'
-        placeHolder='Business Name'
+        placeholder='Business Name'
         value={title}
         onChange={(e) => setTitle(e.target.value)}>
         </input>
         <input
         className='login-inputs'
-        placeHolder='Brief Description'
+        placeholder='Brief Description'
         value={description}
         onChange={(e) => setDescription(e.target.value)}>
         </input>
@@ -83,25 +83,25 @@ const AddBusinessForm = () => {
         onChange={(e) => setAddress(e.target.value)}>
         </input>
         <input
-        placeHolder='Business Image URL'
+        placeholder='Business Image URL'
         className='login-inputs'
         value={businessImage}
         onChange={(e) => setBusinessImage(e.target.value)}>
         </input>
         <input
-        placeHolder='City'
+        placeholder='City'
         className='login-inputs'
         value={city}
         onChange={(e) => setCity(e.target.value)}>
         </input>
         <input
-        placeHolder='State'
+        placeholder='State'
         className='login-inputs'
         value={state}
         onChange={(e) => setState(e.target.value)}>
         </input>
         <input
-        placeHolder='Zip Code'
+        placeholder='Zip Code'
         className='login-inputs'
         value={zipCode}
         onChange={(e) => setZipCode(e.target.value)}>
