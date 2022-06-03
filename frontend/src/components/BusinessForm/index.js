@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { getBusinesses, deleteBusiness } from "../../store/businesses";
+import { getBusinesses } from "../../store/businesses";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from 'react-router-dom'
 import './BusinessForm.css'

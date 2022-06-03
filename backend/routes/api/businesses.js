@@ -50,11 +50,7 @@ const validateBusiness = [
   handleValidationErrors,
 ];
 
-router.post(
-  "/create",
-  requireAuth,
-  validateBusiness,
-  asyncHandler(async (req, res) => {
+router.post("/create", requireAuth, validateBusiness, asyncHandler(async (req, res) => {
     const newBusiness = await Business.create(req.body);
     return res.json(newBusiness);
   })

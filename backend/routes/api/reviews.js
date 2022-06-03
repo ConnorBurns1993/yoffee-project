@@ -8,14 +8,15 @@ const { reviewsByBusinessId } = require('../../db/reviews-repository')
 const router = express.Router();
 
 router.get('/', asyncHandler(async(req, res)=>{
+    const reviews = await Review.findAll({})
 
-    const businessId = parseInt(req.params.id)
-    const reviews = await Review.findAll({
-        where:{ businessId },
-        order: [['rating', 'ASC']]}
-        )
-        return res.json({reviews});
-
+    return res.json(reviews)
     }))
+
+
+router.post('/new', asyncHandler(async (req, res) => {
+const newReview = await Review.create(req.body);
+return res.json(newReview)
+}))
 
 module.exports = router;

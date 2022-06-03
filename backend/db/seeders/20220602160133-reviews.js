@@ -8,7 +8,7 @@ module.exports = {
         userId: 1,
         businessId: 1,
         rating: 3,
-        description: 'test',
+        description: 'This is a Test Review for BUSINESSID 1 made by USERID 1',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -16,7 +16,7 @@ module.exports = {
         userId: 2,
         businessId: 2,
         rating: 4,
-        description: 'test',
+        description: 'This is a Test Review for BUSINESSID 2 made by USERID 2',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -24,7 +24,7 @@ module.exports = {
         userId: 3,
         businessId: 3,
         rating: 5,
-        description: 'test',
+        description: 'This is a Test Review for BUSINESSID 3 made by USERID 3',
         createdAt: new Date(),
         updatedAt: new Date()
       },

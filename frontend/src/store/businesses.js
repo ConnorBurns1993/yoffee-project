@@ -92,8 +92,8 @@ export const addBusiness = (data) => async (dispatch) => {
     }
 };
 
-export const updateBusiness = (id, business) => async (dispatch) => {
-    const response = await csrfFetch(`/api/businesses/${id}`, {
+export const updateBusiness = (business) => async (dispatch) => {
+    const response = await csrfFetch(`/api/businesses/${business.id}`, {
         method: 'PUT',
         body: JSON.stringify(business)
     })

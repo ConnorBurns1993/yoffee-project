@@ -11,6 +11,9 @@ import Navigation from "./components/Navigation";
 import AddBusinessForm from "./components/AddBusinessForm";
 import Rating from './components/Ratings'
 import Reviews from "./components/Reviews";
+import { getBusinesses } from "./store/businesses";
+import { getReviews } from "./store/reviews";
+import { getUsers } from "./store/users";
 import './App.css'
 
 function App() {
@@ -19,6 +22,18 @@ function App() {
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getBusinesses())
+  }, [dispatch])
+
+  useEffect(() => {
+    dispatch(getReviews())
+  }, [dispatch])
+
+  useEffect(() => {
+    dispatch(getUsers())
+  }, [dispatch])
 
   return (
     <>
@@ -50,8 +65,13 @@ function App() {
             <BusinessDetail />
           </Route>
 
+
           <Route path='/stars' exact>
             <Rating />
+          </Route>
+
+          <Route path='/reviews' exact>
+            <Reviews />
           </Route>
 
         </Switch>

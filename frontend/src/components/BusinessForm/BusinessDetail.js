@@ -6,8 +6,10 @@ import { Link } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import { deleteBusiness } from '../../store/businesses'
 import { useHistory } from "react-router-dom";
-import EditBusinessFormModal from "../EditBusinessForm/editBusinessModal";
+import EditBusinessForm from "../EditBusinessForm/EditBusinessForm";
+import Reviews from "../Reviews";
 import './BusinessDetail.css'
+import { getReviews } from "../../store/reviews";
 
 function BusinessDetail() {
     const { businessId } = useParams()
@@ -15,6 +17,10 @@ function BusinessDetail() {
     const history = useHistory();
     const sessionUser = useSelector((state) => state.session.user)
     const business = useSelector(state => state.businesses[businessId])
+
+    const [editForm, setEditForm] = useState(false)
+
+    let content = null;
 
 
     const handleClick = (e) => {
@@ -27,10 +33,20 @@ function BusinessDetail() {
         dispatch(sessionActions.restoreUser())
     }, [dispatch]);
 
+    useEffect(() => {
+        dispatch(getReviews())
+    }, [dispatch])
 
     useEffect(() => {
         dispatch(getOneBusiness(businessId))
+        setEditForm(false);
     }, [dispatch, businessId])
+
+    if (editForm) {
+        content = <EditBusinessForm
+                    business={business}
+                    hideForm={() => setEditForm(false)}/>
+    }
 
     return (
         <div>
@@ -42,14 +58,19 @@ function BusinessDetail() {
     {(business.ownerId === sessionUser.id) ?
     <div>
 
-    <EditBusinessFormModal />
+       {(!editForm) && (
+        <button onClick={() => setEditForm(true)}>Edit</button>
+          )}
 
     <Link to={`/businesses/${business.id}`}>
     <button onClick={handleClick}>Delete</button></Link>
 
     </div> : null }
     </div>
+    <div className='edit-business'>{content}</div>
+    <Reviews />
         </div>
+
 
     )
     }
