@@ -6,10 +6,12 @@ const ADD_BUSINESS = 'businesses/ADD_BUSINESS'
 const UPDATE_BUSINESS = 'businesses/UPDATE_BUSINESS'
 const DELETE_BUSINESS = 'businesses/DELETE_BUSINESS'
 
-const load = (businesses) => ({
+const load = (businesses) => {
+    return {
     type: LOAD_BUSINESSES,
     businesses
-})
+    }
+ }
 
 const add = (businessId) => {
     return {

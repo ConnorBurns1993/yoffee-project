@@ -9,6 +9,8 @@ import Businesses from "./components/BusinessForm";
 import BusinessDetail from './components/BusinessForm/BusinessDetail'
 import Navigation from "./components/Navigation";
 import AddBusinessForm from "./components/AddBusinessForm";
+import Rating from './components/Ratings'
+import Reviews from "./components/Reviews";
 import './App.css'
 
 function App() {
@@ -46,6 +48,10 @@ function App() {
 
           <Route path='/businesses/:businessId' exact>
             <BusinessDetail />
+          </Route>
+
+          <Route path='/stars' exact>
+            <Rating />
           </Route>
 
         </Switch>

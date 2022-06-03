@@ -1,0 +1,37 @@
+.star-wrapper {
+    display: inline-block;
+    position: relative;
+    margin-right: 5px;
+    cursor: pointer;
+    top: 300px;
+    left: 870px;
+}
+
+.marked {
+    border: 1px solid #884040;
+    background-color: #884040;
+    border-radius: 4px;
+    color: white;
+    padding: 5px;
+}
+
+.unmarked {
+    color: white;
+    background-color: darkgray;
+    border: 1px solid darkgray;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.inner-reviews-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 370px;
+}
+
+.review-textarea {
+    width: 1000px;
+    height: 500px;
+}
