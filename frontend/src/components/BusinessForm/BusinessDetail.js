@@ -7,7 +7,6 @@ import * as sessionActions from '../../store/session';
 import { deleteBusiness } from '../../store/businesses'
 import { useHistory } from "react-router-dom";
 import EditBusinessFormModal from "../EditBusinessForm/editBusinessModal";
-import Reviews from "../Reviews";
 import './BusinessDetail.css'
 
 function BusinessDetail() {
@@ -40,11 +39,15 @@ function BusinessDetail() {
     <div>{business.title}</div>
     <div>{business.description}</div>
     <div>{business.address}</div>
+    {(business.ownerId === sessionUser.id) ?
+    <div>
+
     <EditBusinessFormModal />
-    {(business.businessId === sessionUser) ?
+
     <Link to={`/businesses/${business.id}`}>
-    <button onClick={handleClick}>Delete</button>
-    </Link> : null }
+    <button onClick={handleClick}>Delete</button></Link>
+
+    </div> : null }
     </div>
         </div>
 
