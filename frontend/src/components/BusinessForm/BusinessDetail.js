@@ -18,6 +18,19 @@ function BusinessDetail() {
   const business = useSelector((state) => state.businesses[businessId]);
   const reviews = useSelector((state) => state.reviews);
 
+  const [average, setAverage] = useState(0);
+
+  useEffect(() => {
+    const reviewsArray = Object.values(reviews);
+    // console.log(reviewsArray);
+    if (reviewsArray.length) {
+      const sum = reviewsArray.reduce((accum, currentValue) => {
+        return { rating: accum.rating + currentValue.rating };
+      });
+      setAverage(sum.rating / reviewsArray.length);
+    }
+  }, [reviews]);
+
   const [editForm, setEditForm] = useState(false);
   const [showAddReview, setShowAddReview] = useState(false);
 
@@ -53,7 +66,7 @@ function BusinessDetail() {
         <>
           <div className="business-id-wrapper">
             <img alt="" src={business.businessImage}></img>
-            <StaticRating rating={reviews.rating} />
+            {reviews && <StaticRating rating={average} />}
             <div>{business.title}</div>
             <div>{business.description}</div>
             <div>{business.address}</div>

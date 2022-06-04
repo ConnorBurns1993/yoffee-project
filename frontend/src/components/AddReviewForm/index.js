@@ -4,6 +4,7 @@ import { addReview } from "../../store/reviews";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import Rating from "../Ratings";
 
 export default function AddReviewForm({ setShow, businessId }) {
   const { id, name } = useSelector((state) => state.session.user);
@@ -21,12 +22,13 @@ export default function AddReviewForm({ setShow, businessId }) {
       userId: id,
     };
 
-    dispatch(addReview(newReview));
+    await dispatch(addReview(newReview));
     setShow(false);
   };
 
   return (
     <div className="modal">
+      <Rating rating={rating} setRating={setRating} />
       <input
         className="review-textarea"
         type="textarea"
