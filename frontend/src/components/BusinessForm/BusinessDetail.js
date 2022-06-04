@@ -65,7 +65,7 @@ console.log(reviews)
         <div>
     <div className='business-id-wrapper'>
     <img alt='' src={business.businessImage}></img>
-    <StaticRating rating={3.5}/>
+    <StaticRating rating={5}/>
     <div>{business.title}</div>
     <div>{business.description}</div>
     <div>{business.address}</div>
