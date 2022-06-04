@@ -10,6 +10,7 @@ import EditBusinessForm from "../EditBusinessForm/EditBusinessForm";
 import Reviews from "../Reviews";
 import './BusinessDetail.css'
 import { getReviews } from "../../store/reviews";
+import StaticRating from "../RatingsStatic";
 
 function BusinessDetail() {
     const { businessId } = useParams()
@@ -17,10 +18,22 @@ function BusinessDetail() {
     const history = useHistory();
     const sessionUser = useSelector((state) => state.session.user)
     const business = useSelector(state => state.businesses[businessId])
+    const reviews = useSelector(state => state.reviews)
 
     const [editForm, setEditForm] = useState(false)
 
     let content = null;
+
+//     let currentBusinessReviews = [];
+//     if(reviews && business && reviews.length > 0) {
+//     currentBusinessReviews = reviews.forEach(review => {
+//         if (review.businessId === business.id) {
+//             currentBusinessReviews.push(review)
+//             return currentBusinessReviews
+//         }
+//     })
+// }
+console.log(reviews)
 
 
     const handleClick = (e) => {
@@ -52,6 +65,7 @@ function BusinessDetail() {
         <div>
     <div className='business-id-wrapper'>
     <img alt='' src={business.businessImage}></img>
+    <StaticRating rating={3.5}/>
     <div>{business.title}</div>
     <div>{business.description}</div>
     <div>{business.address}</div>
@@ -68,7 +82,12 @@ function BusinessDetail() {
     </div> : null }
     </div>
     <div className='edit-business'>{content}</div>
-    <Reviews />
+    {/* {currentBusinessReviews.length < 1 && <p>This business has no reviews. Be the first!</p>}
+        {currentBusinessReviews && currentBusinessReviews.length > 0 &&
+            currentBusinessReviews.map(review => <Reviews key={review.id} business={business} review={review} />)
+        } */}
+
+        <Reviews />
         </div>
 
 

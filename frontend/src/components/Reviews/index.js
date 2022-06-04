@@ -10,11 +10,9 @@ const reviews = useSelector(state => {
     return Object.values(state.reviews)
 })
 
-const dispatch = useDispatch();
+const sessionUser = useSelector((state) => state.session.user)
 
-useEffect(() => {
-    console.log(reviews)
-}, [reviews])
+const dispatch = useDispatch();
 
 useEffect(() => {
     const dis = dispatch(getReviews())

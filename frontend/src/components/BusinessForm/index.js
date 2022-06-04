@@ -3,6 +3,7 @@ import { getBusinesses } from "../../store/businesses";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from 'react-router-dom'
 import './BusinessForm.css'
+import StaticRating from "../RatingsStatic";
 
 function Businesses() {
 
@@ -24,6 +25,7 @@ return (
         <Link className='businesses-title links' to={`/businesses/${business.id}`}><div className='businesses-wrapper'>
         <li className='businesses-li' key={business.id}>
         <img className='business-image' src={business.businessImage}></img>
+        <StaticRating rating={3.5}/>
         <div className="business-content"><div className='businesses-title links'>{business.title}</div>
         <div>{business.description}</div>
         <div>{business.address}</div>
