@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { getKey } from '../../store/maps';
-import Maps from './Maps';
+import { getKey } from "../../store/maps";
+import Maps from "./Maps";
 
 const MapContainer = () => {
   const key = useSelector((state) => state.maps.key);
@@ -18,9 +18,7 @@ const MapContainer = () => {
     return null;
   }
 
-  return (
-    <Maps apiKey={key} />
-  );
+  return <Maps apiKey={key} />;
 };
 
 export default MapContainer;

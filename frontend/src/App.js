@@ -1,20 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import * as sessionActions from "./store/session";
-import LoginFormPage from "./components/LoginFormPage";
-import SignupFormPage from "./components/SignupFormPage";
-import HomePage from './components/HomePage'
-import Businesses from "./components/BusinessForm";
-import BusinessDetail from './components/BusinessForm/BusinessDetail'
-import Navigation from "./components/Navigation";
+import "./App.css";
 import AddBusinessForm from "./components/AddBusinessForm";
-import Rating from './components/Ratings'
-import Reviews from "./components/Reviews";
-import { getBusinesses } from "./store/businesses";
-import { getReviews } from "./store/reviews";
-import { getUsers } from "./store/users";
-import './App.css'
+import Businesses from "./components/BusinessForm";
+import BusinessDetail from "./components/BusinessForm/BusinessDetail";
+import HomePage from "./components/HomePage";
+import LoginFormPage from "./components/LoginFormPage";
+import Navigation from "./components/Navigation";
+import Rating from "./components/Ratings";
+import SignupFormPage from "./components/SignupFormPage";
+import * as sessionActions from "./store/session";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,25 +19,12 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(getBusinesses())
-  }, [dispatch])
-
-  useEffect(() => {
-    dispatch(getReviews())
-  }, [dispatch])
-
-  useEffect(() => {
-    dispatch(getUsers())
-  }, [dispatch])
-
   return (
     <>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-
-          <Route path='/' exact>
+          <Route path="/" exact>
             <HomePage />
           </Route>
 
@@ -53,27 +36,25 @@ function App() {
             <SignupFormPage />
           </Route>
 
-          <Route path='/businesses' exact>
+          <Route path="/businesses" exact>
             <Businesses />
           </Route>
 
-          <Route path='/businesses/create' exact>
+          <Route path="/businesses/create" exact>
             <AddBusinessForm />
           </Route>
 
-          <Route path='/businesses/:businessId' exact>
+          <Route path="/businesses/:businessId" exact>
             <BusinessDetail />
           </Route>
 
-
-          <Route path='/stars' exact>
+          <Route path="/stars" exact>
             <Rating />
           </Route>
 
-          <Route path='/reviews' exact>
+          {/* <Route path='/reviews' exact>
             <Reviews />
-          </Route>
-
+          </Route> */}
         </Switch>
       )}
     </>

@@ -1,9 +1,9 @@
-import React from 'react';
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import React from "react";
+import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 
 const containerStyle = {
-  width: '400px',
-  height: '400px',
+  width: "400px",
+  height: "400px",
 };
 
 const center = {
@@ -13,7 +13,7 @@ const center = {
 
 const Maps = ({ apiKey }) => {
   const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
+    id: "google-map-script",
     googleMapsApiKey: apiKey,
   });
 

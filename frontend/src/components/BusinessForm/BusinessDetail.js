@@ -1,97 +1,84 @@
 import { useEffect, useState } from "react";
-import { getOneBusiness } from "../../store/businesses";
-import { useSelector, useDispatch } from "react-redux";
-import { useParams } from 'react-router-dom';
-import { Link } from "react-router-dom";
-import * as sessionActions from '../../store/session';
-import { deleteBusiness } from '../../store/businesses'
-import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useHistory, useParams } from "react-router-dom";
+import { deleteBusiness, getOneBusiness } from "../../store/businesses";
+import * as sessionActions from "../../store/session";
 import EditBusinessForm from "../EditBusinessForm/EditBusinessForm";
-import Reviews from "../Reviews";
-import './BusinessDetail.css'
-import { getReviews } from "../../store/reviews";
+import AddReviewForm from "../AddReviewForm";
 import StaticRating from "../RatingsStatic";
+import Reviews from "../Reviews";
+import "./BusinessDetail.css";
 
 function BusinessDetail() {
-    const { businessId } = useParams()
-    const dispatch = useDispatch();
-    const history = useHistory();
-    const sessionUser = useSelector((state) => state.session.user)
-    const business = useSelector(state => state.businesses[businessId])
-    const reviews = useSelector(state => state.reviews)
+  const { businessId } = useParams();
+  const dispatch = useDispatch();
+  const history = useHistory();
 
-    const [editForm, setEditForm] = useState(false)
+  const sessionUser = useSelector((state) => state.session.user);
+  const business = useSelector((state) => state.businesses[businessId]);
+  const reviews = useSelector((state) => state.reviews);
 
-    let content = null;
+  const [editForm, setEditForm] = useState(false);
+  const [showAddReview, setShowAddReview] = useState(false);
 
-//     let currentBusinessReviews = [];
-//     if(reviews && business && reviews.length > 0) {
-//     currentBusinessReviews = reviews.forEach(review => {
-//         if (review.businessId === business.id) {
-//             currentBusinessReviews.push(review)
-//             return currentBusinessReviews
-//         }
-//     })
-// }
-console.log(reviews)
+  let content = null;
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(deleteBusiness(businessId));
+    history.push("/businesses");
+  };
 
-    const handleClick = (e) => {
-        e.preventDefault();
-        dispatch(deleteBusiness(businessId))
-        history.push("/businesses")
-    }
+  useEffect(() => {
+    dispatch(sessionActions.restoreUser());
+  }, [dispatch]);
 
-    useEffect(() => {
-        dispatch(sessionActions.restoreUser())
-    }, [dispatch]);
+  useEffect(() => {
+    dispatch(getOneBusiness(businessId));
+    setEditForm(false);
+  }, [dispatch, businessId]);
 
-    useEffect(() => {
-        dispatch(getReviews())
-    }, [dispatch])
+  if (editForm) {
+    content = (
+      <EditBusinessForm
+        business={business}
+        hideForm={() => setEditForm(false)}
+      />
+    );
+  }
 
-    useEffect(() => {
-        dispatch(getOneBusiness(businessId))
-        setEditForm(false);
-    }, [dispatch, businessId])
-
-    if (editForm) {
-        content = <EditBusinessForm
-                    business={business}
-                    hideForm={() => setEditForm(false)}/>
-    }
-
-    return (
-        <div>
-    <div className='business-id-wrapper'>
-    <img alt='' src={business.businessImage}></img>
-    <StaticRating rating={5}/>
-    <div>{business.title}</div>
-    <div>{business.description}</div>
-    <div>{business.address}</div>
-    {(business.ownerId === sessionUser.id) ?
+  return (
     <div>
+      {business && (
+        <>
+          <div className="business-id-wrapper">
+            <img alt="" src={business.businessImage}></img>
+            <StaticRating rating={reviews.rating} />
+            <div>{business.title}</div>
+            <div>{business.description}</div>
+            <div>{business.address}</div>
+            {business.ownerId === sessionUser.id ? (
+              <div>
+                {!editForm && (
+                  <button onClick={() => setEditForm(true)}>Edit</button>
+                )}
 
-       {(!editForm) && (
-        <button onClick={() => setEditForm(true)}>Edit</button>
+                <Link to={`/businesses/${business.id}`}>
+                  <button onClick={handleClick}>Delete</button>
+                </Link>
+              </div>
+            ) : null}
+          </div>
+          <div className="edit-business">{content}</div>
+          <button onClick={() => setShowAddReview(true)}>Add Review</button>
+          {showAddReview && (
+            <AddReviewForm setShow={setShowAddReview} businessId={businessId} />
           )}
-
-    <Link to={`/businesses/${business.id}`}>
-    <button onClick={handleClick}>Delete</button></Link>
-
-    </div> : null }
+          <Reviews />
+        </>
+      )}
     </div>
-    <div className='edit-business'>{content}</div>
-    {/* {currentBusinessReviews.length < 1 && <p>This business has no reviews. Be the first!</p>}
-        {currentBusinessReviews && currentBusinessReviews.length > 0 &&
-            currentBusinessReviews.map(review => <Reviews key={review.id} business={business} review={review} />)
-        } */}
+  );
+}
 
-        <Reviews />
-        </div>
-
-
-    )
-    }
-
-    export default BusinessDetail;
+export default BusinessDetail;

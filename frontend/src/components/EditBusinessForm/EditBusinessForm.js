@@ -1,12 +1,11 @@
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { updateBusiness } from '../../store/businesses';
-import { useParams } from 'react-router-dom';
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { updateBusiness } from "../../store/businesses";
+import { useParams } from "react-router-dom";
 
-
-const EditBusinessForm = ({business, hideForm}) => {
-  const sessionUser = useSelector((state) => state.session.user)
+const EditBusinessForm = ({ business, hideForm }) => {
+  const sessionUser = useSelector((state) => state.session.user);
   // const business = useSelector(state => state.business);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -33,9 +32,9 @@ const EditBusinessForm = ({business, hideForm}) => {
   // const updateLongitude = (e) => setLongitude(e.target.value);
   const updateBusinessImage = (e) => setBusinessImage(e.target.value);
 
-//   useEffect(() => {
-//     dispatch(getPokemonTypes());
-//   }, [dispatch]);
+  //   useEffect(() => {
+  //     dispatch(getPokemonTypes());
+  //   }, [dispatch]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,9 +48,9 @@ const EditBusinessForm = ({business, hideForm}) => {
       city,
       state,
       zipCode,
-    //   latidude,
-    //   longitude,
-      businessImage
+      //   latidude,
+      //   longitude,
+      businessImage,
     };
 
     const updatedBusiness = await dispatch(updateBusiness(newBusiness));
@@ -64,7 +63,7 @@ const EditBusinessForm = ({business, hideForm}) => {
 
   const handleCancelClick = (e) => {
     hideForm(true);
-    history.push(`/businesses/${businessId}`)
+    history.push(`/businesses/${businessId}`);
   };
 
   return (
@@ -76,7 +75,8 @@ const EditBusinessForm = ({business, hideForm}) => {
           min="3"
           required
           value={title}
-          onChange={updateTitle} />
+          onChange={updateTitle}
+        />
         <input
           type="text"
           placeholder="Description"
@@ -84,7 +84,8 @@ const EditBusinessForm = ({business, hideForm}) => {
           max="500"
           required
           value={description}
-          onChange={updateDescription} />
+          onChange={updateDescription}
+        />
         <input
           type="string"
           placeholder="Address"
@@ -92,29 +93,36 @@ const EditBusinessForm = ({business, hideForm}) => {
           max="100"
           required
           value={address}
-          onChange={updateAddress} />
+          onChange={updateAddress}
+        />
         <input
           type="string"
           placeholder="Business Image URL"
           value={businessImage}
-          onChange={updateBusinessImage} />
+          onChange={updateBusinessImage}
+        />
         <input
           type="string"
           placeholder="City"
           value={city}
-          onChange={updateCity} />
+          onChange={updateCity}
+        />
         <input
           type="string"
           placeholder="State"
           value={state}
-          onChange={updateState} />
+          onChange={updateState}
+        />
         <input
           type="string"
           placeholder="Zip Code"
           value={zipCode}
-          onChange={updateZipCode} />
+          onChange={updateZipCode}
+        />
         <button type="submit">Update Business Info</button>
-        <button type="button" onClick={handleCancelClick}>Cancel</button>
+        <button type="button" onClick={handleCancelClick}>
+          Cancel
+        </button>
       </form>
     </section>
   );
