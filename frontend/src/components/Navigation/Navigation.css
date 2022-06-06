@@ -172,6 +172,7 @@
     border: transparent;
     border-radius: 50px;
     margin-left: 150px;
+    z-index: 3;
 }
 
 .profile-picture:hover {

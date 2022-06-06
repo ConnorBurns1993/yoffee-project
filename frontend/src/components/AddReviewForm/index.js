@@ -26,7 +26,7 @@ export default function AddReviewForm({ setShow, businessId, business }) {
     };
 
     dispatch(addReview(newReview))
-      .then(() => history.push(`/businesses/${businessId}`), setShow(false))
+      .then(() => history.push(`/businesses/${businessId}`))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
