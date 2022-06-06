@@ -1,0 +1,33 @@
+.recent-activity-container {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+position: relative;
+top: 800px;
+left: 530px;
+width: 50%
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    width: 200px;
+    height: 200px;
+}
+
+.card-author {
+    height: 80px;
+    width: 100%;
+}
+
+
+.recent-activity {
+    text-align: center;
+    position: absolute;
+    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+   font-size: 28px;
+   font-weight: 800;
+   letter-spacing: -.4px;
+   line-height: 36px;
+   color: rgba(45,46,47,1);
+   }

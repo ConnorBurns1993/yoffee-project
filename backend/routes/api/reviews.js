@@ -8,6 +8,19 @@ const { reviewsByBusinessId } = require("../../db/reviews-repository");
 const router = express.Router();
 
 router.get(
+  "/",
+  asyncHandler(async (req, res) => {
+    const reviews = await Review.findAll({
+      include: [{ model: User, required: true }],
+      order: [["updatedAt", "ASC"]],
+      limit: 3,
+    });
+
+    return res.json(reviews);
+  })
+);
+
+router.get(
   "/:businessId",
   asyncHandler(async (req, res) => {
     const reviews = await Review.findAll({

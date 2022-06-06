@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 // import { useSelector } from 'react-redux';
 import "./HomePage.css";
 import "../Footer/Footer.css";
+import RecentActivity from "../RecentActivity";
 
 function HomePage() {
   return (
@@ -17,7 +18,9 @@ function HomePage() {
             Fresh lattes
           </button>
         </NavLink>
-        <h2 className="recent-activity">Recent Activity</h2>
+      </div>
+      <div>
+        <RecentActivity />
       </div>
       <div className="footer-wrapper-home">
         <div className="footer-1">

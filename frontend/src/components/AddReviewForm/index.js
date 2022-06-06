@@ -17,7 +17,7 @@ export default function AddReviewForm({ setShow, businessId, business }) {
   const [rating, setRating] = useState(5);
   const [errors, setErrors] = useState([]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async () => {
     const newReview = {
       description: reviewText,
       rating,

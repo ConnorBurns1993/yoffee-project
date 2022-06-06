@@ -34,6 +34,15 @@ const remove = (reviewId) => {
   };
 };
 
+export const getAllReviews = () => async (dispatch) => {
+  const response = await csrfFetch(`/api/reviews`);
+
+  if (response.ok) {
+    const reviews = await response.json();
+    dispatch(load(reviews));
+  }
+};
+
 export const getReviews = (businessId) => async (dispatch) => {
   console.log(businessId);
   const response = await csrfFetch(`/api/reviews/${businessId}`);
