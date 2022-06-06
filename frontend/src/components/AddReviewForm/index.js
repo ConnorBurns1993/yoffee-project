@@ -15,9 +15,9 @@ export default function AddReviewForm({ setShow, businessId, business }) {
 
   const [reviewText, setReviewText] = useState("");
   const [rating, setRating] = useState(5);
-  const [error, setError] = useState(false);
+  const [errors, setErrors] = useState([]);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
     const newReview = {
       description: reviewText,
       rating,
@@ -25,8 +25,12 @@ export default function AddReviewForm({ setShow, businessId, business }) {
       userId: id,
     };
 
-    await dispatch(addReview(newReview));
-    setShow(false);
+    dispatch(addReview(newReview))
+      .then(() => history.push(`/businesses/${businessId}`), setShow(false))
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      });
   };
 
   const handleClick = (e) => {
@@ -50,6 +54,11 @@ export default function AddReviewForm({ setShow, businessId, business }) {
       >
         {business.title}
       </h2>
+      <ul className="errors-reviews">
+        {errors.map((error, idx) => (
+          <li key={idx}>{error}</li>
+        ))}
+      </ul>
       <div className="rating-wrapper">
         <Rating rating={rating} setRating={setRating} />
         <div className="select-your-rating">Select your rating</div>

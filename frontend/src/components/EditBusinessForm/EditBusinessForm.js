@@ -21,7 +21,7 @@ const EditBusinessForm = ({ business, hideForm }) => {
   // const [latidude, setLatidude] = useState(business.latidude);
   // const [longitude, setLongitude] = useState(business.longitude);
   const [businessImage, setBusinessImage] = useState(business.businessImage);
-  // const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState([]);
 
   const updateTitle = (e) => setTitle(e.target.value);
   const updateDescription = (e) => setDescription(e.target.value);
@@ -54,12 +54,17 @@ const EditBusinessForm = ({ business, hideForm }) => {
       businessImage,
     };
 
-    const updatedBusiness = await dispatch(updateBusiness(newBusiness));
+    const updatedBusiness = await dispatch(updateBusiness(newBusiness))
+      .then(() => hideForm(true), history.push(`/businesses/${businessId}`))
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      });
 
-    if (!updatedBusiness) {
-      hideForm(true);
-      history.push(`/businesses/${businessId}`);
-    }
+    //   if (updatedBusiness) {
+    //     history.push(`/businesses/${businessId}`);
+    //     hideForm(true);
+    //   }
   };
 
   const handleCancelClick = (e) => {
@@ -70,7 +75,13 @@ const EditBusinessForm = ({ business, hideForm }) => {
   return (
     <section class="edit-form-wrapper">
       <form className="edit-form" onSubmit={handleSubmit}>
+        <ul className="errors-edit-business">
+          {errors.map((error, idx) => (
+            <li key={idx}>{error}</li>
+          ))}
+        </ul>
         <input
+          className="login-inputs"
           type="string"
           placeholder="Title"
           min="3"
@@ -79,6 +90,7 @@ const EditBusinessForm = ({ business, hideForm }) => {
           onChange={updateTitle}
         />
         <input
+          className="login-inputs"
           type="text"
           placeholder="Description"
           min="3"
@@ -88,6 +100,7 @@ const EditBusinessForm = ({ business, hideForm }) => {
           onChange={updateDescription}
         />
         <input
+          className="login-inputs"
           type="string"
           placeholder="Address"
           min="3"
@@ -97,31 +110,41 @@ const EditBusinessForm = ({ business, hideForm }) => {
           onChange={updateAddress}
         />
         <input
+          className="login-inputs"
           type="string"
           placeholder="Business Image URL"
           value={businessImage}
           onChange={updateBusinessImage}
         />
         <input
+          className="login-inputs"
           type="string"
           placeholder="City"
           value={city}
           onChange={updateCity}
         />
         <input
+          className="login-inputs"
           type="string"
           placeholder="State"
           value={state}
           onChange={updateState}
         />
         <input
+          className="login-inputs"
           type="string"
           placeholder="Zip Code"
           value={zipCode}
           onChange={updateZipCode}
         />
-        <button type="submit">Update Business Info</button>
-        <button type="button" onClick={handleCancelClick}>
+        <button type="submit" className="login2 update-business">
+          Update Business Info
+        </button>
+        <button
+          type="button"
+          className="login2 cancel-edit"
+          onClick={handleCancelClick}
+        >
           Cancel
         </button>
       </form>

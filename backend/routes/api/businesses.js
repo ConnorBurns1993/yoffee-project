@@ -30,15 +30,21 @@ const validateBusiness = [
     .exists({ checkFalsy: true })
     .withMessage("Business must have a name.")
     .isLength({ max: 255 })
-    .withMessage("Business name cannot be longer than 255 characters."),
+    .withMessage("Business name cannot be longer than 255 characters.")
+    .isLength({ min: 3 })
+    .withMessage("Business name must be atleast 3 characters."),
   check("description")
     .exists({ checkFalsy: true })
     .withMessage("Please provide a description of your business.")
     .isLength({ max: 500 })
-    .withMessage("Business description cannot be longer than 500 characters."),
+    .withMessage("Business description cannot be longer than 500 characters.")
+    .isLength({ min: 5 })
+    .withMessage("Business description must be longer than 5 characters."),
   check("address")
     .exists({ checkFalsy: true })
-    .withMessage("Please provide the address of your business."),
+    .withMessage("Please provide the address of your business.")
+    .isLength({ min: 5 })
+    .withMessage("Address must be longer than 5 characters."),
   check("city")
     .exists({ checkFalsy: true })
     .withMessage("Please provide the city where your business is located."),
@@ -57,7 +63,6 @@ const validateBusiness = [
 
 router.post(
   "/create",
-  requireAuth,
   validateBusiness,
   asyncHandler(async (req, res) => {
     const newBusiness = await Business.create(req.body);

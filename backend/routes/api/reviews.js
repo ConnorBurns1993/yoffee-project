@@ -19,8 +19,24 @@ router.get(
   })
 );
 
+const validateReview = [
+  check("rating")
+    .exists({ checkFalsy: true })
+    .withMessage("Please give a rating."),
+  check("description")
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide a review. We cannot accept an empty review.")
+    .isLength({ max: 500 })
+    .withMessage("Reviews cannot be longer than 500 characters.")
+    .isLength({ min: 25 })
+    .withMessage("Please provide a review that is atleast 25 characters."),
+
+  handleValidationErrors,
+];
+
 router.post(
   "/new",
+  validateReview,
   asyncHandler(async (req, res) => {
     const newReview = await Review.create(req.body);
     return res.json(newReview);

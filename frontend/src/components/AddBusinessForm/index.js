@@ -37,14 +37,17 @@ const AddBusinessForm = () => {
       businessImage,
     };
 
-    dispatch(addBusiness(newBusiness)).catch(async (res) => {
-      const data = await res.json();
-      if (data && data.errors) setErrors(data.errors);
-    });
+    dispatch(addBusiness(newBusiness))
+      .then(() => history.push("/businesses"))
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      });
 
-    if (errors.length <= 0 && newBusiness) {
-      history.push("/businesses");
-    }
+    // if (errors.length < 0 && newBusiness) {
+    //   console.log(errors.length);
+    //   history.push("/businesses");
+    // }
   };
 
   const handleCancelClick = (e) => {

@@ -2,12 +2,35 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    top: 400px;
+    top: 300px;
     right: 550px;
     width: 20vw;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 11px rgba(68, 68, 68, 0.9);
+    padding-right: 10px;
 }
 
 .edit-form-wrapper {
     background-color: white;
     width: 30vw;
+}
+
+.update-business {
+    margin-bottom: 5px;
+}
+
+.cancel-edit {
+    margin-bottom: 20px;
+}
+
+.errors-edit-business {
+    color: white;
+    width: 500px;
+    margin-bottom: 5px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
 }

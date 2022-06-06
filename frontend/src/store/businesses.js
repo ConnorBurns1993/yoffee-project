@@ -53,7 +53,6 @@ export const getOneBusiness = (businessId) => async (dispatch) => {
 };
 
 export const addBusiness = (data) => async (dispatch) => {
-  console.log("--- Top of Thunk --- Data: ", data);
   try {
     const response = await csrfFetch("/api/businesses/create", {
       method: "POST",
@@ -62,7 +61,6 @@ export const addBusiness = (data) => async (dispatch) => {
       },
       body: JSON.stringify(data),
     });
-    console.log("--- After Response in Thunk --- Response: ", response);
 
     if (!response.ok) {
       let error;
@@ -82,7 +80,6 @@ export const addBusiness = (data) => async (dispatch) => {
     }
 
     const business = await response.json();
-    console.log("---After Successful Response--- Response: ", business);
     dispatch(add(business));
     return business;
   } catch (error) {
@@ -106,9 +103,7 @@ export const deleteBusiness = (businessId) => async (dispatch) => {
   const response = await csrfFetch(`/api/businesses/${businessId}`, {
     method: "DELETE",
   });
-  console.log("We are hitting the delete thunk");
   if (response.ok) {
-    console.log("We are getting an ok respone on the delete thunk");
     const { id } = await response.json();
     dispatch(remove(id));
     return businessId;
