@@ -19,4 +19,27 @@ Future Features
 -Google API
 -Friends
 
+Splash Page:
+![Screenshot (91)](https://user-images.githubusercontent.com/97809578/172208485-5748c5ef-b11a-4ce4-9d98-d84b2bf4d424.png)
+
+
+
+Sign-Up:
 ![Screenshot (93)](https://user-images.githubusercontent.com/97809578/172208196-a9cb5212-565f-4073-9e6d-830bbce12c26.png)
+
+Add Businesses:
+![Screenshot (94)](https://user-images.githubusercontent.com/97809578/172208572-85326d46-7d2d-46d4-a0b0-dcf48812df22.png)
+
+Businesses:
+![Screenshot (95)](https://user-images.githubusercontent.com/97809578/172208663-568df000-11a3-4254-8d05-86b6b9d9fd05.png)
+
+Business Details:
+![Screenshot (97)](https://user-images.githubusercontent.com/97809578/172208791-73b68d15-0bd0-4a47-843c-21495ee64e2e.png)
+
+
+Rating Form:
+![Screenshot (96)](https://user-images.githubusercontent.com/97809578/172208719-9e8ccfb3-b777-4b2f-a7a2-905f02b2ba65.png)
+
+
+
+
