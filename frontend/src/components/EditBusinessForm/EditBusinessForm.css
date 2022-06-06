@@ -1,0 +1,13 @@
+.edit-form {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 400px;
+    right: 550px;
+    width: 20vw;
+}
+
+.edit-form-wrapper {
+    background-color: white;
+    width: 30vw;
+}

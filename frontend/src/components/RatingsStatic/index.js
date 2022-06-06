@@ -1,15 +1,15 @@
 import React from "react";
-import "../Ratings/Ratings.css";
+import "./RatingsStatic.css";
 
 const StaticRating = ({ rating }) => {
   const stars = [];
   for (let i = 1; i <= 5; i++) {
     if (i <= rating) {
-      stars.push(<i className="fas fa-star marked"></i>);
+      stars.push(<i className="fas fa-star markedstatic"></i>);
     } else if (i === Math.ceil(rating) && !Number.isInteger(rating)) {
-      stars.push(<i className="fas fa-star-half-alt marked"></i>);
+      stars.push(<i className="fas fa-star halfstatic"></i>);
     } else {
-      stars.push(<i className="fas fa-star unmarked"></i>);
+      stars.push(<i className="fas fa-star unmarkedstatic"></i>);
     }
   }
   return <>{stars}</>;

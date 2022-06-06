@@ -4,9 +4,11 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
+import { useHistory } from "react-router-dom";
 import "./Navigation.css";
 
 function Navigation({ isLoaded }, { isHome }) {
+  const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
   const [scrolled, setScrolled] = useState(false);
 
@@ -18,6 +20,12 @@ function Navigation({ isLoaded }, { isHome }) {
       setScrolled(false);
     }
   };
+
+  // useEffect(() => {
+  //   history.listen((location) => {
+  //     console.log(`You changed the page to: ${location.pathname}`);
+  //   });
+  // }, [history]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -41,8 +49,8 @@ function Navigation({ isLoaded }, { isHome }) {
 
   return (
     <div className="homepage-wrapper">
-      <ul>
-        <li className={setScrolled ? "navigation scrolled" : "navigation"}>
+      <ul className={setScrolled ? "navigation scrolled" : "navigation"}>
+        <li className="navigation">
           <NavLink exact to="/" className="home">
             <img
               className="homeLogo"
@@ -62,7 +70,9 @@ function Navigation({ isLoaded }, { isHome }) {
               placeholder="Ontario, CA"
             ></input>
             <button className="searchbar-button" type="submit">
-              <i className="fa-solid fa-magnifying-glass magnify"></i>
+              <NavLink to="/businesses">
+                <i className="fa-solid fa-magnifying-glass magnify"></i>
+              </NavLink>
             </button>
           </form>
           {isLoaded && sessionLinks}

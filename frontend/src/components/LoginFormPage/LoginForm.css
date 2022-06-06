@@ -150,6 +150,7 @@ label {
     bottom: 10px;
     left: 850px;
     width: 175px;
+    z-index: 3;
 }
 
 .log-in-to-yoffee {

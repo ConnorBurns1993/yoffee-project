@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { updateBusiness } from "../../store/businesses";
 import { useParams } from "react-router-dom";
+import "./EditBusinessForm.css";
 
 const EditBusinessForm = ({ business, hideForm }) => {
   const sessionUser = useSelector((state) => state.session.user);
@@ -67,8 +68,8 @@ const EditBusinessForm = ({ business, hideForm }) => {
   };
 
   return (
-    <section className="edit-form-holder centered middled">
-      <form onSubmit={handleSubmit}>
+    <section class="edit-form-wrapper">
+      <form className="edit-form" onSubmit={handleSubmit}>
         <input
           type="string"
           placeholder="Title"

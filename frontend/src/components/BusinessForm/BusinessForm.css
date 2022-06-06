@@ -31,11 +31,78 @@
     box-shadow: 0 0 11px rgba(68, 68, 68, 0.2);
 }
 
+.mock-info-wrapper {
+    position: fixed;
+    top: 120px;
+    left: 55px;
+}
+
+.mock-info-title {
+    font-weight: bolder;
+    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.mock-info-content {
+    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+.blue {
+   color:#027a97;
+   font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+   font-weight: bolder;
+   font-size: 14px;
+   margin-bottom: 5px;
+   margin-top: 2px;
+}
+
+.all-page {
+    margin-bottom: 10px;
+}
+
 .business-image {
     width: 180px;
     height: 180px;
     border-radius: 3px;
     margin-right: 10px;
+}
+
+.mock-google-map {
+    position: fixed;
+    top: 85px;
+    right: 0;
+    width: 36vw;
+    height: 100vh;
+    border: 1px solid rgb(212, 212, 212, .40);
+    box-shadow: 0 0 11px rgba(68, 68, 68, 0.2);
+}
+
+.filter {
+    font-size: 17px;
+}
+
+.mock-map-search {
+    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: transparent;
+    padding: 16px;
+    padding-left: 20px;
+    color: whitesmoke;
+    text-decoration: none;
+    background-color: rgb(54, 15, 15);
+    transition: background-color .5s;
+    position: fixed;
+    top: 100px;
+    z-index: 1;
+    right: 50px;
+}
+
+.mock-map-search:hover {
+    background-color: rgb(75, 23, 23);
 }
 
 ul {
@@ -48,12 +115,46 @@ ul {
 
 .business-content {
 display: inline-block;
-position: relative;
+position: absolute;
 font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
 font-size: 14px;
 color: gray;
-width:400px;
 font-weight: 100
+}
+
+.open:before {
+    color: #02a17b;
+    content: "Open ";
+    font-weight: bold;
+}
+
+.open {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.open-wrapper {
+    display: inline-flex
+}
+
+.business-description
+
+.time {
+    line-height: 27px;
+    margin-left: 3px;
+}
+
+.mock-coffee-and-tea {
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+    background-color: #f0f0f0;
+    width: fit-content;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
 }
 
 .businesses-title {
@@ -61,4 +162,170 @@ font-weight: 100
     font-weight: bold;
     font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
     font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+  }
+
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid rgb(202, 200, 200)
+  }
+
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: rgb(212, 212, 212, .40);
+  }
+
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    display: none;
+  }
+
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+.price-button {
+    padding: 8px;
+    background-color: white;
+    border: 1px solid #c8c9ca;
+    font-size: 10px;
+    cursor: pointer;
+    padding-left: 18px;
+    padding-right: 18px;
+    margin-bottom: 15px;
+    transition: background-color .3s
+}
+
+.price-left {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+.price-right {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.price-button:hover {
+    background-color: rgb(212, 212, 212, .40);
+}
+
+.category-button {
+    padding: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+    background-color: white;
+    border: 1px solid #c8c9ca;
+    width: fit-content;
+    border-radius: 30px;
+    color: #3b3c3d;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 8px;
+    transition: background-color .3s
+}
+
+.category-button:hover {
+    background-color: rgb(212, 212, 212, .40);
+}
+
+.category-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.category-wrapper-inner {
+    display: inline-flex;
+}
+
+.cafe {
+    margin-left: 5px;
+}
+
+.start-order {
+    position: absolute;
+    left: 500px;
+    top: 220px;
+    padding: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+    background-color: white;
+    border: 1px solid #c8c9ca;
+    width: fit-content;
+    border-radius: 5px;
+    color: #3b3c3d;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 8px;
+    transition: background-color .5s
+}
+
+.start-order:hover {
+    background-color: rgb(212, 212, 212, .40);
+}
+
+.business-line {
+width: 600px;
+position: relative;
+top: 10px;
+opacity: .2
 }

@@ -1,14 +1,181 @@
 .business-id-wrapper {
-position: relative;
-top: 200px;
-left: 750px;
-border: solid 10px black;
-border-radius: 10px;
-width: 500px;
 }
 
 .edit-business {
     position: relative;
     top: 250px;
     right: 200px;
+}
+
+.default-business-image {
+    width: 120rem;
+    height: 40rem;
+    z-index: -1;
+}
+
+.business-title {
+    font-size: 50px;
+    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight: bolder;
+    position: relative;
+    bottom: 200px;
+    left: 400px;
+    color: white;
+}
+
+.business-rating {
+    font-size: 21px;
+    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight: bolder;
+    position: relative;
+    bottom: 200px;
+    left: 400px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+
+.claimed {
+    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+    color: #1e88f5;
+    font-size: 17px;
+    font-weight:600;
+    position: relative;
+    bottom: 200px;
+    left: 400px;
+}
+
+.check {
+    color: #1f8eff;
+    font-size: 15px;
+    font-weight: bolder;
+    position: relative;
+    border-radius: 50px;
+    margin-right: 5px;
+}
+
+.business-description {
+    font-size: 17px;
+    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight: bolder;
+    position: relative;
+    bottom: 237px;
+    left: 520px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.dot {
+    font-size: 5px;
+    font-weight: bolder;
+    position: relative;
+    bottom: 220px;
+    left: 500px;
+    color: white;
+}
+
+.open2:before {
+    color: #02a17b;
+    content: "Open ";
+    font-weight: bold;
+}
+
+.open2 {
+    font-size: 17px;
+    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight: bolder;
+    position: relative;
+    bottom: 237px;
+    left: 400px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.write-a-review {
+    position: relative;
+    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: whitesmoke;
+    text-decoration: none;
+    background-color: rgb(54, 15, 15);
+    transition: background-color .5s;
+    width: 200px;
+    position: relative;
+    font-weight: 600;
+    border: transparent;
+    position: relative;
+    bottom: 175px;
+    left: 400px;
+}
+
+.star {
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+.write-a-review:hover {
+    background-color: rgb(75, 23, 23);
+}
+
+.edit-business-form {
+    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: bolder;
+    margin-right: 10px;
+    border: 2px solid
+    #2d2e2f;
+    border-radius: 5px;
+    padding: 8px;
+    color:
+    #2d2e2f;
+    text-decoration: none;
+    background-color: white;
+    transition: background-color .5s;
+    position: relative;
+    left: 615px;
+    bottom: 135px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.edit-business-form:hover {
+    background-color: #cccaca;
+    position: relative;
+}
+
+.fa-pencil,
+.fa-trash-can {
+    margin-right: 10px;
+}
+
+.delete-business-form {
+    font-family: 'Poppins','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: bolder;
+    margin-right: 10px;
+    border: 2px solid
+    #2d2e2f;
+    border-radius: 5px;
+    padding: 8px;
+    color:
+    #2f2d2d;
+    text-decoration: none;
+    background-color: white;
+    transition: background-color .5s, color .5s;
+    position: relative;
+    left: 620px;
+    bottom: 135px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.delete-business-form:hover {
+    background-color: rgb(189, 32, 32);
+    color: white;
+    position: relative;
 }

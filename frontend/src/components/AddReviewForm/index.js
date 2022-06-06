@@ -4,13 +4,16 @@ import { addReview } from "../../store/reviews";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
 import Rating from "../Ratings";
+import { useHistory } from "react-router-dom";
 
-export default function AddReviewForm({ setShow, businessId }) {
+export default function AddReviewForm({ setShow, businessId, business }) {
   const { id, name } = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
 
-  const [reviewText, setReviewText] = useState("This is a review");
+  const [reviewText, setReviewText] = useState("");
   const [rating, setRating] = useState(5);
   const [error, setError] = useState(false);
 
@@ -26,17 +29,41 @@ export default function AddReviewForm({ setShow, businessId }) {
     setShow(false);
   };
 
+  const handleClick = (e) => {
+    history.push(`/businesses/${businessId}`);
+  };
+
   return (
     <div className="modal">
-      <Rating rating={rating} setRating={setRating} />
-      <input
+      <div className="mock-header"></div>
+      <NavLink exact to="/">
+        <img
+          src="https://i.imgur.com/WNhN3BB.png"
+          className="mock-header-img"
+          alt=""
+        ></img>
+      </NavLink>
+      <h2
+        className="review-business-title"
+        style={{ cursor: "pointer" }}
+        onClick={() => handleClick()}
+      >
+        {business.title}
+      </h2>
+      <div className="rating-wrapper">
+        <Rating rating={rating} setRating={setRating} />
+        <div className="select-your-rating">Select your rating</div>
+      </div>
+      <textarea
         className="review-textarea"
-        type="textarea"
+        placeholder="The ambiance here was unmatched. I came here to grab a coffee and study for my midterm, and Sarah was so sweet when she took my order! The only thing I would change is that I wish my coffee could have been a little warmer..."
+        onFocus={(e) => (e.target.placeholder = "")}
         value={reviewText}
         onChange={(e) => setReviewText(e.target.value)}
-      ></input>
-      <button onClick={() => handleSubmit()}>Submit</button>
-      <button onClick={() => setShow(false)}>Cancel</button>
+      ></textarea>
+      <button className="post-review" onClick={() => handleSubmit()}>
+        Post Review
+      </button>
     </div>
   );
 }

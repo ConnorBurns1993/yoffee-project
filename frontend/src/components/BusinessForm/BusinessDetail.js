@@ -65,27 +65,56 @@ function BusinessDetail() {
       {business && (
         <>
           <div className="business-id-wrapper">
-            <img alt="" src={business.businessImage}></img>
-            {reviews && <StaticRating rating={average} />}
-            <div>{business.title}</div>
-            <div>{business.description}</div>
-            <div>{business.address}</div>
+            <img
+              className="default-business-image"
+              alt=""
+              src="https://i.imgur.com/Fu6ThW8.jpg"
+            ></img>
+            <div className="business-title">{business.title}</div>
+            <div className="business-rating">
+              {reviews && <StaticRating rating={average} />}
+            </div>
+            <div className="claimed">
+              <i className="fa-solid fa-circle-check check"></i>Claimed
+            </div>
+            <i className="fa-solid fa-circle dot"></i>
+            <div className="business-description">{business.description}</div>
+            <p className="open2">8:00 AM - 10:00 PM</p>
             {business.ownerId === sessionUser.id ? (
               <div>
                 {!editForm && (
-                  <button onClick={() => setEditForm(true)}>Edit</button>
+                  <button
+                    className="edit-business-form"
+                    onClick={() => setEditForm(true)}
+                  >
+                    <i className="fa-solid fa-pencil"></i>Edit
+                  </button>
                 )}
 
                 <Link to={`/businesses/${business.id}`}>
-                  <button onClick={handleClick}>Delete</button>
+                  <button
+                    className="delete-business-form"
+                    onClick={handleClick}
+                  >
+                    <i className="fa-solid fa-trash-can"></i>Delete
+                  </button>
                 </Link>
               </div>
             ) : null}
           </div>
-          <div className="edit-business">{content}</div>
-          <button onClick={() => setShowAddReview(true)}>Add Review</button>
+          <div>{content}</div>
+          <button
+            className="write-a-review"
+            onClick={() => setShowAddReview(true)}
+          >
+            <i className="fa-regular fa-star star"></i> Write a Review
+          </button>
           {showAddReview && (
-            <AddReviewForm setShow={setShowAddReview} businessId={businessId} />
+            <AddReviewForm
+              setShow={setShowAddReview}
+              businessId={businessId}
+              business={business}
+            />
           )}
           <Reviews />
         </>

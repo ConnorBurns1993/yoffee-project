@@ -25,6 +25,10 @@ function LoginFormPage() {
     );
   };
 
+  const handleDemoUser = () => {
+    return dispatch(sessionActions.demoUser());
+  };
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -56,19 +60,19 @@ function LoginFormPage() {
             </NavLink>
           </div>
           <NavLink exact to="/">
-            <button className="demo-user facebook">
+            <button className="demo-user facebook" onClick={handleDemoUser}>
               <i className="fa-brands fa-dailymotion demo-icon"></i>Continue
               with Demo User
             </button>
           </NavLink>
           <NavLink exact to="/">
-            <button className="demo-user google">
+            <button className="demo-user google" onClick={handleDemoUser}>
               <i className="fa-brands fa-dailymotion demo-icon goog"></i>
               Continue with Demo User
             </button>
           </NavLink>
           <NavLink exact to="/">
-            <button className="demo-user apple">
+            <button className="demo-user apple" onClick={handleDemoUser}>
               <i className="fa-brands fa-dailymotion demo-icon"></i>Continue
               with Demo User
             </button>
